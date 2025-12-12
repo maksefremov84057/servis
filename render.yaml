@@ -1,12 +1,9 @@
 services:
   - type: web
-    name: servis
+    name: grades-app
     env: python
-    region: oregon
-    plan: free
-    buildCommand: pip install -r requirements.txt  # <-- ВОТ ТАК ПРАВИЛЬНО
-    startCommand: gunicorn app:app --timeout 120
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9.0  # <-- ТОЛЬКО ВЕРСИЯ PYTHON, БЕЗ БИБЛИОТЕК
-
+        value: 3.9.0
