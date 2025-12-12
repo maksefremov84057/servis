@@ -6,5 +6,6 @@ services:
     startCommand: gunicorn app:app
     envVars:
       - key: PYTHON_VERSION
-        value: 3.13.4
+        value: 3.9.0
+
 
