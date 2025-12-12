@@ -2,14 +2,10 @@ services:
   - type: web
     name: image-processor
     env: python
-    region: oregon  # Меньше проблем чем frankfurt
+    region: oregon
     plan: free
-    buildCommand: |
-      python -m pip install --upgrade pip
-      pip install --no-cache-dir -r requirements.txt
+    buildCommand: chmod +x build.sh && ./build.sh
     startCommand: gunicorn app:app --timeout 120
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9.0  # Используем 3.9.0 как у вас было
-    healthCheckPath: /
-    autoDeploy: true
+        value: 3.9.0
