@@ -129,4 +129,5 @@ def refresh_captcha():
     return {'captcha_image': captcha_base64}
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=9500)
+    app.run(debug=True, port=9000)
+
