@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: image-processor
+    name: servis
     env: python
     region: oregon
     plan: free
@@ -9,3 +9,4 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.9.0  # <-- ТОЛЬКО ВЕРСИЯ PYTHON, БЕЗ БИБЛИОТЕК
+
