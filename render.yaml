@@ -1,9 +1,15 @@
 services:
   - type: web
-    name: grades-app
+    name: image-processor
     env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
+    region: oregon  # Меньше проблем чем frankfurt
+    plan: free
+    buildCommand: |
+      python -m pip install --upgrade pip
+      pip install --no-cache-dir -r requirements.txt
+    startCommand: gunicorn app:app --timeout 120
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9.0
+        value: 3.9.0  # Используем 3.9.0 как у вас было
+    healthCheckPath: /
+    autoDeploy: true
